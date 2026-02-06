@@ -1,4 +1,5 @@
 import type { ProductDTO } from '../../models/product';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 type Props = {
@@ -7,7 +8,8 @@ type Props = {
 
 export default function ProductCategory({product} : Props){
     return (
-          <div className="dsc-card">
+      <Link to={`/product-detail/${product.id}`} className="dsc-link">
+       <div className="dsc-card">
             <div className="dsc-catalog-card-top dsc-line-bottom">
               <img src={product.imgUrl} alt={product.name} />
             </div>
@@ -15,6 +17,7 @@ export default function ProductCategory({product} : Props){
               <h3>R$ {product.price}</h3>
               <h4>{product.name}</h4>
             </div>
-          </div> 
+          </div>
+      </Link>
      );
 }
